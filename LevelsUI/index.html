@@ -327,10 +327,12 @@
       var tableFileData = null;
       var locFileData = null;
 
+      // Will execute on clicking state on the map
       function changeLocation() {
-        loadStateMap();
+        loadMapData();
         loadTableData();
         loadNormalData();
+        graphUpdate();
       }
 
       //DOWNLOAD NORMAL JSON
@@ -348,7 +350,7 @@
       }
 
       //DOWNLOAD MAP
-      function loadStateMap(stateName) {
+      function loadMapData(stateName) {
         document.getElementById('locName').innerHTML = stateName + ' Map';
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {

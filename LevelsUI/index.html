@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Bootstrap Theme</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg bg-light navbar-light py-3"
+      id="mainNavbar"
+    >
+      <div class="container">
+        <a href="index.html" class="navbar-brand display-5">
+          Groundwater Dashboard
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarLinks"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarLinks">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="visualize.html" class="nav-link">Visualize</a>
+            </li>
+            <li class="nav-item">
+              <a href="getAPI.html" class="nav-link">Get API</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--HOME SECTION-->
+    <section id="home">
+      <div class="container">
+        <div class="row mt-4">
+          <!--LEFT SIDE HOME-->
+          <div class="col-md-6 col-sm-12">
+            <p class="text-muted text-center mb-1">
+              Search State/District/Block
+            </p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="search"
+                placeholder="Search"
+                id="searchText"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  id="searchBtn"
+                  onclick="searchClick(this.id)"
+                >
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <!--DATE HANDLING FORM-->
+
+            <div class="row my-4 text-center">
+              <div class="col-md-6 col-sm-12 p-1">
+                <div class="card card-body">
+                  <div class="card-title">Year</div>
+                  <select
+                    name="year"
+                    id="yearSelect"
+                    class="form-control"
+                    onclick="changeYear(this.value);"
+                  >
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="1998">1998</option>
+                    <option value="1997">1997</option>
+                    <option value="1996">1996</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6 p-1">
+                <div class="card card-body">
+                  <div class="card-title">
+                    Season
+                  </div>
+                  <select name="year" id="yearSelect" class="form-control">
+                    <option value="">POMRB</option>
+                    <option value="">POMKH</option>
+                    <option value="">PREMON</option>
+                    <option value="">MONSOON</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!--CURRENT MASTER LOCATION STATS CARD GROUP-->
+            <div class="row text-center no-gutters">
+              <div class="col-3">
+                <div class="card text-success card-body">
+                  <h5>Improving<br />Districts</h5>
+                  <h2 class="font-weight-bold">23</h2>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card card-body text-danger">
+                  <h5>Declining<br />Districts</h5>
+                  <h2 class="font-weight-bold">10</h2>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card card-body text-warning">
+                  <h5>Current<br />GWL</h5>
+                  <h2 class="font-weight-bold">10.74</h2>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card card-body text-primary">
+                  <h5>Average<br />GWL</h5>
+                  <h2 class="font-weight-bold">11.89</h2>
+                </div>
+              </div>
+            </div>
+
+            <!--TABLE STARTS HERE-->
+            <div id="tableSection" class="mt-3">
+              <div
+                class="container"
+                style="border: 1px solid red; height: 700px;"
+              ></div>
+            </div>
+            <!--TABLE ENDS HERE-->
+          </div>
+
+          <!--RIGHT SIDE HOME-->
+          <div class="col-md-6 col-sm-12">
+            <h1 class="text-secondary text-center" id="locName"></h1>
+            <p class="text-muted text-center">
+              Click on States/UTs for more details.
+            </p>
+
+            <!--MAP STARTS HERE-->
+            <div id="tableSection" class="mt-3">
+              <div
+                class="container"
+                style="border: 1px solid red; height: 600px;"
+              ></div>
+            </div>
+            <!--MAP ENDS HERE-->
+
+            <p class="text-muted text-center h3 mt-3">Spread Trends</p>
+            <div class="card card-body">
+              <div class="card-title">
+                Algorithms
+              </div>
+              <select name="year" id="yearSelect" class="form-control">
+                <option value="ARIMA">ARIMA</option>
+                <option value="EWMA">EWMA</option>
+                <option value="SMA">SMA</option>
+                <option value="HWES">HWES</option>
+              </select>
+            </div>
+            <!--GRAPHS START HERE-->
+
+            <!--ALL SEASONS GRAPH-->
+            <div
+              class="container mt-3"
+              style="border: 1px solid red; height: 200px;"
+            ></div>
+
+            <!--POMRB GRAPH-->
+            <div
+              class="container mt-3"
+              style="border: 1px solid red; height: 200px;"
+            ></div>
+
+            <!--POMKH GRAPH-->
+            <div
+              class="container mt-3"
+              style="border: 1px solid red; height: 200px;"
+            ></div>
+
+            <!--PREMONSOON GRAPH-->
+            <div
+              class="container mt-3"
+              style="border: 1px solid red; height: 200px;"
+            ></div>
+
+            <!--MONSOON GRAPH-->
+            <div
+              class="container mt-3"
+              style="border: 1px solid red; height: 200px;"
+            ></div>
+
+            <!--GRAPHS END HERE-->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--FOOTER-->
+    <footer id="main-footer" class="py-5 bg-light mb-0">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-6 mx-auto">
+            <p class="lead">
+              Zero2One
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- DO NOT USE SLIM VERSION OF JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      //GLOBAL VARIABLES
+      var year = 2018;
+      var loc = 'India';
+      var state = null;
+      var docIdx = 92;
+
+      document.getElementById('locName').innerHTML = loc + ' Map';
+
+      function searchClick(id) {
+        console.log('Pressed Search!');
+        var searchString = document.getElementById('searchText').value;
+        console.log(searchString);
+        //Make Search operational
+      }
+
+      function changeYear() {
+        console.log(document.getElementById('yearSelect').value);
+      }
+    </script>
+  </body>
+</html>
